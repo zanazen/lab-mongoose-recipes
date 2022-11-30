@@ -17,7 +17,28 @@ mongoose
   })
   .then(() => {
     // Run your code here, after you have insured that the connection was made
+    recipeRouter.delete('/delete/', async (request, response) => {
+      try {
+        const deleteRecipe = await RecipeModel.finfByAndDelete()
+        return response.status(200).json(deleteRecipe)
+      } catch (error) {
+        console.log (error)
+        return response.status(500).json({ msg: "Algo deu errado"})
+      }      
+    });
+
+    recipeRouter.post('/create-many/', async (request, response) => {
+      try {
+        const form = request.body;
+        const insertRecipe = await RecipeModel.insertMany();
+        return response.status(200).json(insertRecipe);
+      } catch (error) {
+        console.log (error)
+        return response.status(500).json({ msg: "Algo deu errado"})
+      }      
+    });
   })
+   
   .catch(error => {
     console.error('Error connecting to the database', error);
   });
