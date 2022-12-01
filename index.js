@@ -1,3 +1,9 @@
+import * as dotenv from "dotenv";
+import dbConnection from "./db.config.js";
+import Recipe from "./models/Recipe.model.js";
+import recipesfile from './data.json' assert { type: 'json' };
+import mongose from "mongoose";
+
 const mongoose = require('mongoose');
 
 // Import of the model Recipe from './models/Recipe.model.js'
