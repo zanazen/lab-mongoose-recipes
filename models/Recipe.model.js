@@ -1,4 +1,4 @@
-import { model, Schema } from "mongoose"
+import mongoose from 'mongoose';{ model, Schema } from "mongoose"
 
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
